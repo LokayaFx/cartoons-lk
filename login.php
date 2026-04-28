@@ -38,14 +38,14 @@
 <body class="dark font-sans text-zinc-100 flex items-center justify-center min-h-screen p-4">
 
   <!-- Back to site -->
-  <a href="index.html" class="fixed top-4 left-4 flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-300 transition-colors z-10">
+  <a href="index.php" class="fixed top-4 left-4 flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-300 transition-colors z-10">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
     </svg>
     Back to site
   </a>
 
-  <!-- ── Login Card ── -->
+  <!-- —— Login Card —— -->
   <div class="login-card w-full max-w-sm rounded-3xl p-8 shadow-2xl animate-fade-in">
 
     <!-- Brand -->

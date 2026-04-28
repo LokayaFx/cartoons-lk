@@ -27,7 +27,7 @@
 <nav class="sticky top-0 z-50 border-b border-zinc-800/70 backdrop-blur-xl bg-surface-900/90">
   <div class="flex items-center justify-between h-14 px-4 sm:px-6 lg:px-8 max-w-full">
     <div class="flex items-center gap-3">
-      <a href="index.html" class="flex items-center gap-2 font-bold text-sm">
+      <a href="index.php" class="flex items-center gap-2 font-bold text-sm">
         <span class="text-xl">📺</span> <span class="text-brand-400">Cartoons</span>LK
       </a>
       <span class="text-xs text-zinc-500">| Dashboard</span>
@@ -41,7 +41,7 @@
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
     
-    <!-- ── SERIES MANAGEMENT ── -->
+    <!-- —— SERIES MANAGEMENT —— -->
     <section>
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-xl font-bold flex items-center gap-2">📂 1. Manage Series (Categories)</h2>
@@ -63,7 +63,7 @@
 
     <div class="h-px bg-zinc-800"></div>
 
-    <!-- ── EPISODE MANAGEMENT ── -->
+    <!-- —— EPISODE MANAGEMENT —— -->
     <section>
         <h2 class="text-xl font-bold flex items-center gap-2 mb-6">🎞️ 2. Manage Episodes</h2>
         <div class="bg-surface-800 p-6 rounded-2xl border border-zinc-800 mb-6">

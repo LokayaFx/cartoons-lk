@@ -27,7 +27,7 @@
       if (user && user.email && user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
         navAuth.innerHTML = `
           <div class="h-px bg-zinc-800 my-2"></div>
-          <a href="admin.html" class="nav-link-item text-brand-500 bg-brand-500/5 border-brand-500/10">
+          <a href="admin.php" class="nav-link-item text-brand-500 bg-brand-500/5 border-brand-500/10">
             <span class="w-4">🛠️</span> Admin Dashboard
           </a>
           <button onclick="auth.signOut(); location.reload(); return false;" class="nav-link-item w-full text-zinc-500 hover:text-red-400">
