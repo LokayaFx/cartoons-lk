@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Login — CartoonsLK</title>
+  <title>Admin Login â€” CartoonsLK</title>
   <meta name="robots" content="noindex, nofollow" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,21 +38,21 @@
 <body class="dark font-sans text-zinc-100 flex items-center justify-center min-h-screen p-4">
 
   <!-- Back to site -->
-  <a href="index.html" class="fixed top-4 left-4 flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-300 transition-colors z-10">
+  <a href="index.php" class="fixed top-4 left-4 flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-300 transition-colors z-10">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
     </svg>
     Back to site
   </a>
 
-  <!-- ── Login Card ── -->
+  <!-- â”€â”€ Login Card â”€â”€ -->
   <div class="login-card w-full max-w-sm rounded-3xl p-8 shadow-2xl animate-fade-in">
 
     <!-- Brand -->
     <div class="text-center mb-8">
       <div class="w-14 h-14 rounded-2xl bg-brand-500/15 border border-brand-500/30
                   flex items-center justify-center text-3xl mx-auto mb-4 shadow-[0_0_20px_rgba(249,115,22,0.25)]">
-        📺
+        ðŸ“º
       </div>
       <h1 class="text-xl font-bold text-white">Admin Access</h1>
       <p class="text-sm text-zinc-500 mt-1">CartoonsLK Dashboard</p>
@@ -95,7 +95,7 @@
         <label for="login-password" class="text-xs font-medium text-zinc-400 mb-1.5 block">Password</label>
         <div class="relative">
           <input id="login-password" type="password" required autocomplete="current-password"
-                 placeholder="••••••••"
+                 placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                  class="input-field pr-10" />
           <button type="button" id="toggle-pw"
                   class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 transition-colors">
@@ -117,7 +117,7 @@
 
     <!-- Note -->
     <p class="text-center text-xs text-zinc-600 mt-6">
-      🔒 Access restricted to authorised administrators only.<br/>No registration available.
+      ðŸ”’ Access restricted to authorised administrators only.<br/>No registration available.
     </p>
   </div>
 
@@ -132,3 +132,4 @@
   <script src="js/auth.js"></script>
 </body>
 </html>
+

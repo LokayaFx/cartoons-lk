@@ -1,5 +1,5 @@
-/**
- * app.js — Homepage logic for loading Series
+﻿/**
+ * app.js â€” Homepage logic for loading Series
  */
 
 (function () {
@@ -7,7 +7,7 @@
   const searchIn   = document.getElementById('search-input');
   let allSeries    = [];
 
-  // ── Load Series from Firestore ───────────────────────────
+  // â”€â”€ Load Series from Firestore â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   seriesRef.orderBy('updatedAt', 'desc').get()
     .then(snapshot => {
       grid.innerHTML = '';
@@ -19,7 +19,7 @@
 
   function renderSeriesCard(data) {
     const card = document.createElement('a');
-    card.href = `series-details.html?id=${data.id}`;
+    card.href = `series-details.php?id=${data.id}`;
     card.className = 'cartoon-card block bg-surface-800 rounded-2xl overflow-hidden border border-zinc-800/60 hover:border-brand-500/30 transition-all';
     card.dataset.title = data.title.toLowerCase();
     
@@ -33,7 +33,7 @@
       </div>
       <div class="p-3">
         <h3 class="font-bold text-sm text-zinc-100 font-sinhala line-clamp-1">${data.title}</h3>
-        <p class="text-[10px] text-zinc-500 mt-1">Click to view episodes →</p>
+        <p class="text-[10px] text-zinc-500 mt-1">Click to view episodes â†’</p>
       </div>
     `;
     grid.appendChild(card);
@@ -48,3 +48,4 @@
     });
   });
 })();
+

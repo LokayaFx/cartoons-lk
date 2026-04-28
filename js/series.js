@@ -1,5 +1,5 @@
-/**
- * series.js — Logic for showing episodes of a specific series
+﻿/**
+ * series.js â€” Logic for showing episodes of a specific series
  */
 
 (function () {
@@ -12,20 +12,20 @@
   const epText  = document.getElementById('ep-count-text');
 
   if (!seriesId) {
-    window.location.href = 'index.html';
+    window.location.href = 'index.php';
     return;
   }
 
-  // ── Load Series Info ───────────────────────────
+  // â”€â”€ Load Series Info â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   seriesRef.doc(seriesId).get().then(doc => {
     if (!doc.exists) return;
     const data = doc.data();
     sTitle.textContent = data.title;
     sImg.src = data.thumbnail;
-    document.title = data.title + ' — Cartoons LK';
+    document.title = data.title + ' â€” Cartoons LK';
   });
 
-  // ── Load Episodes link to this Series ──────────
+  // â”€â”€ Load Episodes link to this Series â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   episodesRef.where('seriesId', '==', seriesId).orderBy('createdAt', 'asc').get()
     .then(snapshot => {
       epGrid.innerHTML = '';
@@ -63,3 +63,4 @@
     epGrid.appendChild(card);
   }
 })();
+

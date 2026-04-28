@@ -1,9 +1,13 @@
+<?php
+$pageTitle = $pageTitle ?? 'Cartoons LK — සිංහල කාටූන් එකතුව';
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <!DOCTYPE html>
 <html lang="si" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions — Cartoons LK</title>
+  <title><?php echo htmlspecialchars($pageTitle); ?></title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,7 +30,7 @@
 
 <nav class="sticky top-0 z-50 border-b border-zinc-800/70 backdrop-blur-xl bg-surface-900/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
-    <a href="index.html" class="flex items-center gap-2 group">
+    <a href="index.php" class="flex items-center gap-2 group">
       <span class="text-xl">📺</span>
       <span class="font-bold text-base tracking-tight"><span class="text-brand-400">Cartoons</span><span class="text-zinc-300">LK</span></span>
     </a>
@@ -43,40 +47,11 @@
     <button id="menu-close" class="text-zinc-500 hover:text-white transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
   </div>
   <div class="p-6 flex flex-col gap-2 flex-grow overflow-y-auto">
-    <a href="index.html" class="nav-link-item"><span class="w-4">📺</span> Cartoons</a>
-    <a href="movies.html" class="nav-link-item"><span class="w-4">🎬</span> Movies</a>
-    <a href="submits.html" class="nav-link-item"><span class="w-4">📬</span> Submits</a>
-    <a href="contact.html" class="nav-link-item"><span class="w-4">📧</span> Contact Us</a>
-    <a href="terms.html" class="nav-link-item active"><span class="w-4">⚖️</span> Terms & Conditions</a>
+    <a href="index.php" class="nav-link-item <?php echo $currentPage == 'index.php' ? 'active' : ''; ?>"><span class="w-4">📺</span> Cartoons</a>
+    <a href="movies.php" class="nav-link-item <?php echo $currentPage == 'movies.php' ? 'active' : ''; ?>"><span class="w-4">🎬</span> Movies</a>
+    <a href="submits.php" class="nav-link-item <?php echo $currentPage == 'submits.php' ? 'active' : ''; ?>"><span class="w-4">📬</span> Submits</a>
+    <a href="contact.php" class="nav-link-item <?php echo $currentPage == 'contact.php' ? 'active' : ''; ?>"><span class="w-4">📧</span> Contact Us</a>
+    <a href="terms.php" class="nav-link-item <?php echo $currentPage == 'terms.php' ? 'active' : ''; ?>"><span class="w-4">⚖️</span> Terms & Conditions</a>
     <div id="nav-auth-links" class="flex flex-col gap-2"></div>
   </div>
 </aside>
-
-<main class="max-w-3xl mx-auto p-10 w-full animate-fade-in">
-    <h1 class="text-3xl font-bold text-white mb-6 border-b border-zinc-800 pb-4">Terms & Conditions</h1>
-    <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
-      <section>
-        <h2 class="text-white font-bold mb-2">1. Introduction</h2>
-        <p>Welcome to CartoonsLK. By accessing this website, you agree to comply with and be bound by these terms and conditions.</p>
-      </section>
-      <section>
-        <h2 class="text-white font-bold mb-2">2. Copyright & Content</h2>
-        <p>CartoonsLK does not host any video files. All content is linked from third-party platforms like YouTube, Dailymotion, and Archive.org. All rights belong to the original creators and copyright holders.</p>
-      </section>
-      <section>
-        <h2 class="text-white font-bold mb-2">3. External Links</h2>
-        <p>Our website contains links to external sites that are not operated by us. We have no control over the content and practices of these sites.</p>
-      </section>
-    </div>
-</main>
-
-<footer class="border-t border-zinc-800/60 bg-surface-900 py-8 text-center mt-auto">
-  <p class="text-xs text-zinc-600">&copy; 2026 CartoonsLK</p>
-</footer>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-<script src="js/firebase-config.js"></script>
-<script src="js/common.js"></script>
-</body>
-</html>

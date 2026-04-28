@@ -1,20 +1,20 @@
-// ════════════════════════════════════════════════════════════
-//  auth.js — Login page logic
+﻿// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+//  auth.js â€” Login page logic
 //  Firebase Google + Email/Password authentication
-// ════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 (function () {
   const errorBox = document.getElementById('error-box');
   const toastEl  = document.getElementById('toast');
 
-  // ── If already signed in as admin, redirect ────────────────
+  // â”€â”€ If already signed in as admin, redirect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   auth.onAuthStateChanged(user => {
     if (user && user.email && user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
-      window.location.href = 'admin.html';
+      window.location.href = 'admin.php';
     }
   });
 
-  // ── Helpers ────────────────────────────────────────────────
+  // â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function showError(msg) {
     errorBox.textContent = msg;
     errorBox.classList.remove('hidden');
@@ -24,7 +24,7 @@
   function clearError() { errorBox.classList.add('hidden'); }
 
   function showToast(msg, ok = true) {
-    toastEl.textContent = (ok ? '✅ ' : '❌ ') + msg;
+    toastEl.textContent = (ok ? 'âœ… ' : 'âŒ ') + msg;
     toastEl.classList.add('show');
     setTimeout(() => toastEl.classList.remove('show'), 3500);
   }
@@ -32,10 +32,10 @@
   function setLoading(btnEl, spinnerEl, textEl, textStr, loading) {
     btnEl.disabled = loading;
     spinnerEl.classList.toggle('hidden', !loading);
-    textEl.textContent = loading ? 'Please wait…' : textStr;
+    textEl.textContent = loading ? 'Please waitâ€¦' : textStr;
   }
 
-  // ── Verify admin email ─────────────────────────────────────
+  // â”€â”€ Verify admin email â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function verifyAdmin(user) {
     if (user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
       auth.signOut();
@@ -43,7 +43,7 @@
     }
   }
 
-  // ── Google Sign-In ─────────────────────────────────────────
+  // â”€â”€ Google Sign-In â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   window.signInWithGoogle = async function () {
     clearError();
     const btn     = document.getElementById('google-btn');
@@ -55,15 +55,15 @@
       const provider = new firebase.auth.GoogleAuthProvider();
       const result   = await auth.signInWithPopup(provider);
       verifyAdmin(result.user);
-      showToast('Logged in! Redirecting…');
-      setTimeout(() => { window.location.href = 'admin.html'; }, 800);
+      showToast('Logged in! Redirectingâ€¦');
+      setTimeout(() => { window.location.href = 'admin.php'; }, 800);
     } catch (err) {
       setLoading(btn, spinner, btnText, 'Continue with Google', false);
       showError(err.message || 'Google sign-in failed');
     }
   };
 
-  // ── Email / Password Sign-In ───────────────────────────────
+  // â”€â”€ Email / Password Sign-In â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   window.signInWithEmail = async function (e) {
     e.preventDefault();
     clearError();
@@ -78,8 +78,8 @@
     try {
       const result = await auth.signInWithEmailAndPassword(email, password);
       verifyAdmin(result.user);
-      showToast('Logged in! Redirecting…');
-      setTimeout(() => { window.location.href = 'admin.html'; }, 800);
+      showToast('Logged in! Redirectingâ€¦');
+      setTimeout(() => { window.location.href = 'admin.php'; }, 800);
     } catch (err) {
       setLoading(btn, spinner, text, 'Sign In', false);
       const msg = (err.code === 'auth/wrong-password' || err.code === 'auth/user-not-found')
@@ -89,9 +89,10 @@
     }
   };
 
-  // ── Toggle password visibility ─────────────────────────────
+  // â”€â”€ Toggle password visibility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   document.getElementById('toggle-pw').addEventListener('click', () => {
     const pw = document.getElementById('login-password');
     pw.type = pw.type === 'password' ? 'text' : 'password';
   });
 })();
+

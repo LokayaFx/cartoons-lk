@@ -1,5 +1,5 @@
-/**
- * admin.js — Admin logic for Series & Episodes
+﻿/**
+ * admin.js â€” Admin logic for Series & Episodes
  */
 
 (function () {
@@ -12,10 +12,10 @@
 
   let cachedSeries = {};
 
-  // ── Auth gate ──────────────────────
+  // â”€â”€ Auth gate â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   auth.onAuthStateChanged(user => {
     if (!user || user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
-      window.location.href = 'login.html';
+      window.location.href = 'login.php';
       return;
     }
     emailDisplay.textContent = user.email;
@@ -24,7 +24,7 @@
   });
 
   function showToast(msg, ok=true) {
-    toastEl.textContent = (ok ? '✅ ' : '❌ ') + msg;
+    toastEl.textContent = (ok ? 'âœ… ' : 'âŒ ') + msg;
     toastEl.classList.add('show');
     setTimeout(() => toastEl.classList.remove('show'), 3000);
   }
@@ -34,7 +34,7 @@
     loadEpisodes();
   }
 
-  // ── Manage Series ───────────────────────────
+  // â”€â”€ Manage Series â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   window.addSeries = async function(e) {
     e.preventDefault();
     const title = document.getElementById('series-title').value.trim();
@@ -82,7 +82,7 @@
     loadSeries();
   };
 
-  // ── Manage Episodes ───────────────────────────
+  // â”€â”€ Manage Episodes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   window.addEpisode = async function(e) {
     e.preventDefault();
     const seriesId = epSeriesSel.value;
@@ -130,3 +130,4 @@
   };
 
 })();
+
