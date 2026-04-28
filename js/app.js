@@ -3,48 +3,135 @@
  */
 
 (function () {
-  const grid       = document.getElementById('series-grid');
-  const searchIn   = document.getElementById('search-input');
-  let allSeries    = [];
+  const grid        = document.getElementById('series-grid');
+  const searchIn    = document.getElementById('search-input');
+  const noResult    = document.getElementById('no-result');
+  const searchTerm  = document.getElementById('search-term');
+  const catChips    = document.querySelectorAll('.cat-chip');
+  const countSeries = document.getElementById('count-series');
+  const countEp     = document.getElementById('count-episodes');
+  let allCards      = [];
+  let activeCategory = 'all';
 
-  // ── Load Series from Firestore ─────────────────────────────
+  // ── Floating Particles ─────────────────────────────────
+  (function initParticles() {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+    const sizes  = [2, 3, 4, 3, 2];
+    const delays = [0, 2, 4, 6, 8, 10, 12, 1, 3, 5];
+    const durations = [8, 10, 12, 9, 11];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const s = sizes[i % sizes.length];
+      p.style.cssText = `
+        width:${s}px; height:${s}px;
+        left:${Math.random()*100}%;
+        animation-duration:${durations[i % durations.length] + Math.random()*3}s;
+        animation-delay:${delays[i % delays.length] * -1}s;
+        opacity: ${0.3 + Math.random()*0.5};
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // ── Scroll to Top ──────────────────────────────────────
+  const scrollBtn = document.getElementById('scroll-top');
+  if (scrollBtn) {
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 200);
+    });
+  }
+
+  // ── Category chips ─────────────────────────────────────
+  catChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      catChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeCategory = chip.dataset.cat;
+      filterCards();
+    });
+  });
+
+  // ── Load Series from Firestore ─────────────────────────
+  let totalEpisodes = 0;
+
   seriesRef.orderBy('updatedAt', 'desc').get()
     .then(snapshot => {
       grid.innerHTML = '';
+      if (countSeries) countSeries.textContent = snapshot.size;
+
+      let epPromises = [];
       snapshot.forEach(doc => {
         const data = { id: doc.id, ...doc.data() };
         renderSeriesCard(data);
+        epPromises.push(
+          episodesRef.where('seriesId', '==', doc.id).get()
+            .then(s => s.size)
+        );
       });
+
+      Promise.all(epPromises).then(counts => {
+        const total = counts.reduce((a, b) => a + b, 0);
+        if (countEp) animateCount(countEp, total);
+      });
+
+      if (countSeries) animateCount(countSeries, snapshot.size);
     });
+
+  function animateCount(el, target) {
+    let current = 0;
+    const step = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current;
+      if (current >= target) clearInterval(timer);
+    }, 40);
+  }
 
   function renderSeriesCard(data) {
     const card = document.createElement('a');
     card.href = `series-details.php?id=${data.id}`;
-    card.className = 'cartoon-card block bg-surface-800 rounded-2xl overflow-hidden border border-zinc-800/60 hover:border-brand-500/30 transition-all';
-    card.dataset.title = data.title.toLowerCase();
-    
+    card.className = 'cartoon-card block bg-surface-800 rounded-2xl overflow-hidden border border-zinc-800/60 hover:border-brand-500/40 transition-all glow-hover animate-slide-up';
+    card.dataset.title = (data.title || '').toLowerCase();
+    card.dataset.cat   = (data.category || 'all').toLowerCase();
+
+    const isNew = data.updatedAt && (Date.now()/1000 - data.updatedAt.seconds) < 60*60*24*7;
+
     card.innerHTML = `
       <div class="aspect-video relative overflow-hidden">
-        <img src="${data.thumbnail}" alt="${data.title}" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <img src="${data.thumbnail}" alt="${data.title}" class="w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div class="absolute bottom-2 left-3">
-          <span class="text-[10px] font-bold text-brand-400 uppercase tracking-tighter">Series</span>
+          <span class="text-[10px] font-bold text-brand-400 uppercase tracking-tighter bg-black/40 backdrop-blur-sm rounded px-1.5 py-0.5">Series</span>
         </div>
+        ${isNew ? '<span class="badge-new">NEW</span>' : ''}
       </div>
       <div class="p-3">
         <h3 class="font-bold text-sm text-zinc-100 font-sinhala line-clamp-1">${data.title}</h3>
-        <p class="text-[10px] text-zinc-500 mt-1">Click to view episodes →</p>
+        <p class="text-[10px] text-zinc-500 mt-1 flex items-center gap-1">
+          <svg class="w-3 h-3 text-brand-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          View Episodes →
+        </p>
       </div>
     `;
     grid.appendChild(card);
-    allSeries.push(card);
+    allCards.push(card);
   }
 
-  searchIn.addEventListener('input', () => {
-    const q = searchIn.value.trim().toLowerCase();
-    allSeries.forEach(card => {
-      const match = !q || card.dataset.title.includes(q);
-      card.style.display = match ? 'block' : 'none';
+  function filterCards() {
+    const q   = searchIn.value.trim().toLowerCase();
+    let count = 0;
+    allCards.forEach(card => {
+      const matchSearch = !q || card.dataset.title.includes(q);
+      const matchCat    = activeCategory === 'all' || card.dataset.cat === activeCategory;
+      const show = matchSearch && matchCat;
+      card.style.display = show ? '' : 'none';
+      if (show) count++;
     });
-  });
+    if (noResult)   noResult.style.display = count === 0 ? 'flex' : 'none';
+    if (searchTerm) searchTerm.textContent = q;
+  }
+
+  searchIn.addEventListener('input', filterCards);
 })();
