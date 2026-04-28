@@ -1,5 +1,5 @@
-﻿/**
- * app.js â€” Homepage logic for loading Series
+/**
+ * app.js — Homepage logic for loading Series
  */
 
 (function () {
@@ -7,7 +7,7 @@
   const searchIn   = document.getElementById('search-input');
   let allSeries    = [];
 
-  // â”€â”€ Load Series from Firestore â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Load Series from Firestore ─────────────────────────────
   seriesRef.orderBy('updatedAt', 'desc').get()
     .then(snapshot => {
       grid.innerHTML = '';
@@ -33,7 +33,7 @@
       </div>
       <div class="p-3">
         <h3 class="font-bold text-sm text-zinc-100 font-sinhala line-clamp-1">${data.title}</h3>
-        <p class="text-[10px] text-zinc-500 mt-1">Click to view episodes â†’</p>
+        <p class="text-[10px] text-zinc-500 mt-1">Click to view episodes →</p>
       </div>
     `;
     grid.appendChild(card);
@@ -48,4 +48,3 @@
     });
   });
 })();
-

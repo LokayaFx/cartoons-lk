@@ -1,13 +1,12 @@
-﻿<?php
-$pageTitle = 'Cartoons LK â€” à·ƒà·’à¶‚à·„à¶½ à¶šà·à¶§à·–à¶±à·Š à¶‘à¶šà¶­à·”à·€';
-include 'includes/header.php';
+<?php
+$pageTitle = 'Cartoons LK — සිංහල කාටූන් එකතුව';
+require_once 'includes/header.php';
 ?>
-
 
 <header class="header-bg pt-10 pb-8 text-center px-4 animate-fade-in">
   <div class="max-w-2xl mx-auto">
     <p class="text-brand-400 text-xs font-semibold tracking-widest uppercase mb-2">Recently Updated</p>
-    <h1 class="text-3xl font-extrabold text-white glow-text leading-tight mb-6">à¶´à·Šâ€à¶»à·’à¶ºà¶­à¶¸ à¶šà·à¶§à·–à¶±à·Š à¶¸à·à¶½à·à·€à¶±à·Š</h1>
+    <h1 class="text-3xl font-extrabold text-white glow-text leading-tight mb-6">ප්‍රියතම කාටූන් මාලාවන්</h1>
     
     <div class="relative max-w-xl mx-auto search-container">
       <input id="search-input" type="search" placeholder="Search series..." class="w-full bg-surface-800 border border-zinc-700/70 rounded-2xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/60" />
@@ -29,4 +28,3 @@ include 'includes/header.php';
 <script src="js/app.js"></script>
 </body>
 </html>
-

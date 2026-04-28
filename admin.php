@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard â€” CartoonsLK</title>
+  <title>Admin Dashboard — CartoonsLK</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,7 +28,7 @@
   <div class="flex items-center justify-between h-14 px-4 sm:px-6 lg:px-8 max-w-full">
     <div class="flex items-center gap-3">
       <a href="index.php" class="flex items-center gap-2 font-bold text-sm">
-        <span class="text-xl">ðŸ“º</span> <span class="text-brand-400">Cartoons</span>LK
+        <span class="text-xl">📺</span> <span class="text-brand-400">Cartoons</span>LK
       </a>
       <span class="text-xs text-zinc-500">| Dashboard</span>
     </div>
@@ -41,10 +41,10 @@
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
     
-    <!-- â”€â”€ SERIES MANAGEMENT â”€â”€ -->
+    <!-- —— SERIES MANAGEMENT —— -->
     <section>
         <div class="flex items-center justify-between mb-6">
-            <h2 class="text-xl font-bold flex items-center gap-2">ðŸ“‚ 1. Manage Series (Categories)</h2>
+            <h2 class="text-xl font-bold flex items-center gap-2">📂 1. Manage Series (Categories)</h2>
         </div>
         <div class="bg-surface-800 p-6 rounded-2xl border border-zinc-800 mb-6">
             <form id="series-form" onsubmit="addSeries(event)" class="grid grid-cols-1 md:grid-cols-3 gap-4 h-full items-end">
@@ -63,9 +63,9 @@
 
     <div class="h-px bg-zinc-800"></div>
 
-    <!-- â”€â”€ EPISODE MANAGEMENT â”€â”€ -->
+    <!-- —— EPISODE MANAGEMENT —— -->
     <section>
-        <h2 class="text-xl font-bold flex items-center gap-2 mb-6">ðŸŽžï¸ 2. Manage Episodes</h2>
+        <h2 class="text-xl font-bold flex items-center gap-2 mb-6">🎞️ 2. Manage Episodes</h2>
         <div class="bg-surface-800 p-6 rounded-2xl border border-zinc-800 mb-6">
             <form id="episode-form" onsubmit="addEpisode(event)" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
                 <div>
@@ -100,4 +100,3 @@
 <script src="js/admin.js"></script>
 </body>
 </html>
-

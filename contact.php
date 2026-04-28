@@ -1,11 +1,10 @@
-﻿<?php
-$pageTitle = 'Contact Us â€” Cartoons LK';
+<?php
+$pageTitle = 'Contact Us — Cartoons LK';
 include 'includes/header.php';
 ?>
 
-
 <main class="max-w-xl mx-auto p-8 w-full animate-fade-in text-center">
-    <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-3xl mx-auto mb-4">ðŸ“§</div>
+    <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-3xl mx-auto mb-4">📧</div>
     <h1 class="text-2xl font-bold text-white mb-2">Get in Touch</h1>
     <p class="text-sm text-zinc-500 mb-8">Email us at: <a href="mailto:support@cartoonslk.com" class="text-brand-400 font-medium">support@cartoonslk.com</a></p>
     
@@ -26,4 +25,3 @@ include 'includes/header.php';
 <script src="js/common.js"></script>
 </body>
 </html>
-

@@ -1,8 +1,7 @@
-﻿<?php
-$pageTitle = 'Terms & Conditions â€” Cartoons LK';
+<?php
+$pageTitle = 'Terms & Conditions — Cartoons LK';
 include 'includes/header.php';
 ?>
-
 
 <main class="max-w-3xl mx-auto p-10 w-full animate-fade-in">
     <h1 class="text-3xl font-bold text-white mb-6 border-b border-zinc-800 pb-4">Terms & Conditions</h1>
@@ -32,4 +31,3 @@ include 'includes/header.php';
 <script src="js/common.js"></script>
 </body>
 </html>
-

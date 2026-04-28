@@ -1,5 +1,5 @@
-﻿/**
- * series.js â€” Logic for showing episodes of a specific series
+/**
+ * series.js — Logic for showing episodes of a specific series
  */
 
 (function () {
@@ -16,16 +16,16 @@
     return;
   }
 
-  // â”€â”€ Load Series Info â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Load Series Info ─────────────────────────────
   seriesRef.doc(seriesId).get().then(doc => {
     if (!doc.exists) return;
     const data = doc.data();
     sTitle.textContent = data.title;
     sImg.src = data.thumbnail;
-    document.title = data.title + ' â€” Cartoons LK';
+    document.title = data.title + ' — Cartoons LK';
   });
 
-  // â”€â”€ Load Episodes link to this Series â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Load Episodes link to this Series ──────────
   episodesRef.where('seriesId', '==', seriesId).orderBy('createdAt', 'asc').get()
     .then(snapshot => {
       epGrid.innerHTML = '';
@@ -52,7 +52,7 @@
         <img src="${data.thumbnail_url}" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
            <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center shadow-glow">
-             <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
            </div>
         </div>
       </div>
@@ -63,4 +63,3 @@
     epGrid.appendChild(card);
   }
 })();
-

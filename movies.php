@@ -1,11 +1,10 @@
-﻿<?php
-$pageTitle = 'Movies â€” Cartoons LK';
+<?php
+$pageTitle = 'Movies — Cartoons LK';
 include 'includes/header.php';
 ?>
 
-
 <main class="flex-grow flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-  <div class="w-20 h-20 rounded-3xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-4xl mb-6 shadow-glow">ðŸŽ¬</div>
+  <div class="w-20 h-20 rounded-3xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-4xl mb-6 shadow-glow">🎬</div>
   <h1 class="text-3xl font-extrabold text-white mb-4 glow-text">Movies Section</h1>
   <p class="text-zinc-500 max-w-md">Coming soon! We are curating the best classic Sinhala dubbed movies for you. Stay tuned.</p>
 </main>
@@ -20,4 +19,3 @@ include 'includes/header.php';
 <script src="js/common.js"></script>
 </body>
 </html>
-

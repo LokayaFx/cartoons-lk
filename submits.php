@@ -1,12 +1,11 @@
-﻿<?php
-$pageTitle = 'Submits â€” Cartoons LK';
+<?php
+$pageTitle = 'Submits — Cartoons LK';
 include 'includes/header.php';
 ?>
 
-
 <main class="max-w-xl mx-auto p-8 w-full animate-fade-in">
   <div class="text-center mb-10">
-    <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-3xl mx-auto mb-4">ðŸ“¬</div>
+    <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-3xl mx-auto mb-4">📬</div>
     <h1 class="text-2xl font-bold text-white mb-2">Submit Cartoon</h1>
     <p class="text-sm text-zinc-500">Do you have a classic cartoon link? Share it with us!</p>
   </div>
@@ -33,4 +32,3 @@ include 'includes/header.php';
 <script src="js/common.js"></script>
 </body>
 </html>
-
