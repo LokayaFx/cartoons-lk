@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore classic Sinhala dubbed movies on CartoonsLK. Coming soon!" />
   <title>Movies — Cartoons LK</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,7 +15,10 @@
             brand:   { 400:'#fb923c',500:'#f97316',600:'#ea6c0a' },
             surface: { 900:'#0d0d0f',800:'#18181b',700:'#27272a',600:'#3f3f46',500:'#52525b' }
           },
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], sinhala: ['"Noto Sans Sinhala"','sans-serif'] },
+          fontFamily: { 
+            sans: ['Inter','ui-sans-serif','system-ui'], 
+            sinhala: ['"Noto Sans Sinhala"','sans-serif'] 
+          },
         }
       }
     }
@@ -28,7 +32,9 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
     <a href="index.html" class="flex items-center gap-2 group">
       <span class="text-xl">📺</span>
-      <span class="font-bold text-base tracking-tight"><span class="text-brand-400">Cartoons</span><span class="text-zinc-300">LK</span></span>
+      <span class="font-bold text-base tracking-tight transition-all group-hover:text-brand-400">
+        <span class="text-brand-400">Cartoons</span><span class="text-zinc-300">LK</span>
+      </span>
     </a>
     <button id="menu-toggle" class="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all cursor-pointer">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -36,36 +42,164 @@
   </div>
 </nav>
 
-<!-- Sidebar logic is handled by common.js -->
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
-<aside id="sidebar" class="fixed top-0 right-0 h-full w-[280px] bg-surface-900 border-l border-zinc-800 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col">
-  <div class="p-6 flex items-center justify-between border-b border-zinc-800">
-    <span class="font-bold text-zinc-200">Navigation</span>
-    <button id="menu-close" class="text-zinc-500 hover:text-white transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+<aside id="sidebar" class="fixed top-0 right-0 h-full w-[300px] bg-surface-900 border-l border-zinc-800/50 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+  <!-- Search Header -->
+  <div class="p-6 border-b border-zinc-800/60">
+    <div class="relative group">
+      <input type="text" placeholder="Search..." class="w-full bg-zinc-900 border border-zinc-700/50 rounded-full py-2.5 pl-5 pr-10 text-xs focus:outline-none focus:border-brand-500/60 transition-all duration-300" />
+      <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-500 text-sm opacity-70 group-hover:opacity-100 cursor-pointer">🔍</span>
+    </div>
   </div>
-  <div class="p-6 flex flex-col gap-2 flex-grow overflow-y-auto">
-    <a href="index.html" class="nav-link-item"><span class="w-4">📺</span> Cartoons</a>
-    <a href="movies.html" class="nav-link-item active"><span class="w-4">🎬</span> Movies</a>
-    <a href="submits.html" class="nav-link-item"><span class="w-4">📬</span> Submits</a>
-    <a href="contact.html" class="nav-link-item"><span class="w-4">📧</span> Contact Us</a>
-    <a href="terms.html" class="nav-link-item"><span class="w-4">⚖️</span> Terms & Conditions</a>
-    <div id="nav-auth-links" class="flex flex-col gap-2"></div>
+
+  <div class="flex-grow overflow-y-auto">
+    <div class="flex flex-col">
+      <a href="index.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🏠</span> Home
+      </a>
+      <a href="cartoons.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📺</span> Cartoons
+      </a>
+      <a href="movies.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎬</span> Movies
+      </a>
+      <a href="series-details.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎞️</span> TV Series
+      </a>
+      <a href="contact.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📧</span> Contact Us
+      </a>
+      <a href="terms.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">⚖️</span> Privacy Policy
+      </a>
+      <div id="nav-auth-links" class="flex flex-col"></div>
+    </div>
+  </div>
+
+  <div class="p-6 border-t border-zinc-800/60 text-center">
+    <button id="menu-close" class="text-[10px] font-bold text-zinc-600 uppercase tracking-widest hover:text-zinc-400 transition-colors">Close Menu</button>
   </div>
 </aside>
 
-<main class="flex-grow flex flex-col items-center justify-center p-6 text-center animate-fade-in">
-  <div class="w-20 h-20 rounded-3xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-4xl mb-6 shadow-glow">🎬</div>
-  <h1 class="text-3xl font-extrabold text-white mb-4 glow-text">Movies Section</h1>
-  <p class="text-zinc-500 max-w-md">Coming soon! We are curating the best classic Sinhala dubbed movies for you. Stay tuned.</p>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-10 overflow-x-auto whitespace-nowrap">
+      <a href="index.html" class="flex items-center gap-1.5 hover:text-brand-400 transition-colors">
+        <span>🏠</span> Home
+      </a>
+      <span class="opacity-30">/</span>
+      <span class="text-zinc-300">Movies</span>
+    </nav>
+
+    <div class="grid lg:grid-cols-12 gap-12">
+      
+      <!-- Main Content: Movie List -->
+      <div class="lg:col-span-8 space-y-12">
+        <div class="border-b border-zinc-800/60 pb-6 mb-10 relative">
+          <h1 class="text-3xl font-black text-white uppercase tracking-tighter italic">Movies</h1>
+          <div class="absolute bottom-0 left-0 w-16 h-1 bg-brand-500 rounded-full"></div>
+        </div>
+
+        <div id="movies-list" class="space-y-12">
+            <!-- Movie cards will be loaded here -->
+            <div class="flex flex-col gap-6 animate-pulse">
+                <div class="h-8 bg-surface-800 w-2/3 rounded-lg"></div>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-full md:w-80 aspect-video bg-surface-800 rounded-2xl"></div>
+                    <div class="flex-1 space-y-4">
+                        <div class="h-4 bg-surface-800 w-full rounded"></div>
+                        <div class="h-4 bg-surface-800 w-5/6 rounded"></div>
+                        <div class="h-10 bg-surface-800 w-32 rounded-xl mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-10">
+        
+        <!-- Recent Posts Section -->
+        <div class="bg-surface-800/40 border border-zinc-800/60 rounded-3xl p-6">
+          <h3 class="text-xs font-black text-zinc-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+            <span class="w-1.5 h-4 bg-brand-500 rounded-full"></span> Recent Posts
+          </h3>
+          <div id="recent-posts-list" class="space-y-6">
+            <!-- Small list items -->
+          </div>
+        </div>
+
+        <!-- Sidebar Advertisement/Banner -->
+        <div class="bg-gradient-to-br from-brand-600/20 to-surface-900 border border-brand-500/10 rounded-3xl p-8 text-center relative overflow-hidden group">
+           <div class="relative z-10">
+             <h4 class="text-sm font-bold text-white mb-2 italic uppercase tracking-widest">Advertisement</h4>
+             <p class="text-[10px] text-zinc-500 mb-0 leading-relaxed uppercase tracking-widest font-bold">Your Ad Here • 300x250</p>
+           </div>
+           <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        </div>
+
+      </aside>
+
+    </div>
 </main>
 
-<footer class="border-t border-zinc-800/60 bg-surface-900 py-8 text-center mt-auto">
-  <p class="text-xs text-zinc-600">&copy; 2026 CartoonsLK</p>
+<footer class="border-t border-zinc-800/60 bg-surface-900 py-10 text-center mt-auto">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">📺</span>
+        <span class="font-bold text-sm tracking-tight text-zinc-400 uppercase">Cartoons<span class="text-zinc-600">LK</span></span>
+      </div>
+      <div class="flex gap-6 text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+        <a href="index.html" class="hover:text-brand-400 transition-colors">Home</a>
+        <a href="submits.html" class="hover:text-brand-400 transition-colors">Submit</a>
+        <a href="contact.html" class="hover:text-brand-400 transition-colors">Contact</a>
+        <a href="terms.html" class="hover:text-brand-400 transition-colors">Terms</a>
+      </div>
+    </div>
+    <p class="text-[10px] text-zinc-600 leading-relaxed max-w-lg mx-auto">&copy; 2026 CartoonsLK. Your favorite destination for classic Sinhala dubbed cartoons. All rights reserved.</p>
+  </div>
 </footer>
+
+<div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-blue-500 text-white px-6 py-3 rounded-full text-sm font-bold shadow-2xl opacity-0 transform translate-y-10 transition-all pointer-events-none z-[100]">
+  ✨ We'll let you know once we're live!
+</div>
+
+<script>
+function notifyClick() {
+  const input = document.getElementById('notify-email');
+  const btn   = document.getElementById('notify-btn');
+  const toast = document.getElementById('toast');
+
+  if (!input.value.includes('@')) {
+    input.classList.add('shake');
+    setTimeout(() => input.classList.remove('shake'), 600);
+    return;
+  }
+
+  // Visual success feedback
+  btn.innerHTML = '✓ Subscribed';
+  btn.disabled = true;
+  btn.style.background = '#22c55e';
+  input.value = '';
+
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(40px)';
+  }, 4000);
+}
+</script>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
 <script src="js/firebase-config.js"></script>
 <script src="js/common.js"></script>
+<script src="js/movies.js"></script>
 </body>
 </html>
+

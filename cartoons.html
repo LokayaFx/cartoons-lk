@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartoons — CartoonsLK</title>
+  <meta name="description" content="Browse our extensive collection of classic cartoons dubbed in Sinhala. Watch online for free." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand:   { 400:'#fb923c',500:'#f97316',600:'#ea6c0a' },
+            surface: { 900:'#0d0d0f',800:'#18181b',700:'#27272a',600:'#3f3f46' }
+          },
+          fontFamily: { 
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            sinhala: ['Iskoola Pota', 'Noto Sans Sinhala', 'sans-serif']
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dark font-sans text-zinc-100 bg-surface-900">
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 border-b border-zinc-800/70 backdrop-blur-xl bg-surface-900/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-xl shadow-[0_0_15px_rgba(249,115,22,0.1)]">📺</div>
+      <span class="font-black text-lg tracking-tighter">
+        <span class="text-brand-500 italic">Cartoons</span><span class="text-white">LK</span>
+      </span>
+    </a>
+
+    <button id="menu-toggle" class="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all cursor-pointer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<aside id="sidebar" class="fixed top-0 right-0 h-full w-[300px] bg-surface-900 border-l border-zinc-800/50 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+  <div class="p-6 border-b border-zinc-800/60">
+    <div class="relative group">
+      <input type="text" placeholder="Search..." class="w-full bg-zinc-900 border border-zinc-700/50 rounded-full py-2.5 pl-5 pr-10 text-xs focus:outline-none focus:border-brand-500/60 transition-all duration-300" />
+      <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-500 text-sm opacity-70 group-hover:opacity-100 cursor-pointer">🔍</span>
+    </div>
+  </div>
+  <div class="flex-grow overflow-y-auto">
+    <div class="flex flex-col">
+      <a href="index.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🏠</span> Home
+      </a>
+      <a href="cartoons.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📺</span> Cartoons
+      </a>
+      <a href="movies.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎬</span> Movies
+      </a>
+      <a href="series-details.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎞️</span> TV Series
+      </a>
+      <a href="contact.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📧</span> Contact Us
+      </a>
+      <a href="terms.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">⚖️</span> Privacy Policy
+      </a>
+      <div id="nav-auth-links" class="flex flex-col"></div>
+    </div>
+  </div>
+  <div class="p-6 border-t border-zinc-800/60 text-center">
+    <button id="menu-close" class="text-[10px] font-bold text-zinc-600 uppercase tracking-widest hover:text-zinc-400 transition-colors uppercase">Close Menu</button>
+  </div>
+</aside>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-10 overflow-x-auto whitespace-nowrap">
+      <a href="index.html" class="flex items-center gap-1.5 hover:text-brand-400 transition-colors text-zinc-300">
+        <span>🏠</span> Home
+      </a>
+      <span class="opacity-30">/</span>
+      <span class="text-zinc-400">Cartoons</span>
+    </nav>
+
+    <div class="grid lg:grid-cols-12 gap-12">
+      
+      <!-- Main Content: Cartoons List -->
+      <div class="lg:col-span-8 space-y-12">
+        <div class="border-b border-zinc-800/60 pb-6 mb-10 relative">
+          <h1 class="text-3xl font-black text-white uppercase tracking-tighter italic">Cartoons Collection</h1>
+          <div class="absolute bottom-0 left-0 w-16 h-1 bg-brand-500 rounded-full"></div>
+        </div>
+
+        <div id="series-list" class="space-y-12">
+            <!-- Loaded via cartoons.js -->
+            <div class="h-80 bg-surface-800/50 animate-pulse rounded-3xl"></div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-10">
+        <div id="sidebar-widgets">
+           <!-- Latest sidebar loaded via cartoons.js -->
+        </div>
+      </aside>
+    </div>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cartoons.js"></script>
+
+</body>
+</html>

@@ -14,55 +14,136 @@
             brand:   { 400:'#fb923c',500:'#f97316',600:'#ea6c0a' },
             surface: { 900:'#0d0d0f',800:'#18181b',700:'#27272a',600:'#3f3f46',500:'#52525b' }
           },
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], sinhala: ['"Noto Sans Sinhala"','sans-serif'] },
+          fontFamily: { 
+            sans: ['Inter','ui-sans-serif','system-ui'], 
+            sinhala: ['"Noto Sans Sinhala"','sans-serif'] 
+          },
         }
       }
     }
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Sinhala:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="dark font-sans text-zinc-100 min-h-screen">
+<body class="dark font-sans text-zinc-100 min-h-screen flex flex-col">
 
 <nav class="sticky top-0 z-50 border-b border-zinc-800/70 backdrop-blur-xl bg-surface-900/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
     <a href="index.html" class="flex items-center gap-2 group">
-      <span class="text-xl">📺</span> <span class="font-bold text-base"><span class="text-brand-400">Cartoons</span>LK</span>
+      <span class="text-xl">📺</span>
+      <span class="font-bold text-base tracking-tight transition-all group-hover:text-brand-400">
+        <span class="text-brand-400">Cartoons</span><span class="text-zinc-300">LK</span>
+      </span>
     </a>
-    <button id="menu-toggle" class="p-2 rounded-lg text-zinc-400 cursor-pointer"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <button id="menu-toggle" class="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all cursor-pointer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </div>
 </nav>
 
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
-<aside id="sidebar" class="fixed top-0 right-0 h-full w-[280px] bg-surface-900 border-l border-zinc-800 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col">
-  <div class="p-6 flex items-center justify-between border-b border-zinc-800">
-    <span class="font-bold text-zinc-200">Navigation</span>
-    <button id="menu-close" class="text-zinc-500 hover:text-white transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+<aside id="sidebar" class="fixed top-0 right-0 h-full w-[300px] bg-surface-900 border-l border-zinc-800/50 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+  <!-- Search Header -->
+  <div class="p-6 border-b border-zinc-800/60">
+    <div class="relative group">
+      <input type="text" placeholder="Search..." class="w-full bg-zinc-900 border border-zinc-700/50 rounded-full py-2.5 pl-5 pr-10 text-xs focus:outline-none focus:border-brand-500/60 transition-all duration-300" />
+      <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-500 text-sm opacity-70 group-hover:opacity-100 cursor-pointer">🔍</span>
+    </div>
   </div>
-  <div class="p-6 flex flex-col gap-2 flex-grow overflow-y-auto">
-    <a href="index.html" class="nav-link-item"><span class="w-4">🏠</span> Home</a>
-    <div id="nav-auth-links" class="flex flex-col gap-2"></div>
+
+  <div class="flex-grow overflow-y-auto">
+    <div class="flex flex-col">
+      <a href="index.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🏠</span> Home
+      </a>
+      <a href="cartoons.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📺</span> Cartoons
+      </a>
+      <a href="movies.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎬</span> Movies
+      </a>
+      <a href="series-details.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎞️</span> TV Series
+      </a>
+      <a href="contact.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📧</span> Contact Us
+      </a>
+      <a href="terms.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">⚖️</span> Privacy Policy
+      </a>
+      <div id="nav-auth-links" class="flex flex-col"></div>
+    </div>
+  </div>
+
+  <div class="p-6 border-t border-zinc-800/60 text-center">
+    <button id="menu-close" class="text-[10px] font-bold text-zinc-600 uppercase tracking-widest hover:text-zinc-400 transition-colors uppercase">Close Menu</button>
   </div>
 </aside>
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="mb-10 flex flex-col md:flex-row gap-8 items-center md:items-end">
-        <img id="series-img" src="" class="w-48 aspect-video object-cover rounded-2xl border border-zinc-700 shadow-2xl" />
-        <div class="text-center md:text-left">
-            <h1 id="series-title" class="text-4xl font-extrabold text-white glow-text mb-2 font-sinhala">Loading…</h1>
-            <p id="ep-count-text" class="text-zinc-500 text-sm">Episodes List</p>
+    
+    <!-- Back button -->
+    <a href="index.html" class="inline-flex items-center gap-2 text-zinc-500 hover:text-brand-400 text-xs font-bold uppercase tracking-widest mb-8 transition-colors group">
+      <span class="group-hover:-translate-x-1 transition-transform">←</span> Back to Cartoons
+    </a>
+
+    <!-- Hero Section -->
+    <div class="relative rounded-[2.5rem] overflow-hidden border border-zinc-800/60 mb-12 shadow-2xl">
+      <!-- Dynamic Blurred BG -->
+      <div id="series-hero-bg" class="absolute inset-0 bg-cover bg-center blur-3xl opacity-20 scale-110"></div>
+      
+      <div class="relative z-10 p-8 sm:p-12 flex flex-col md:flex-row gap-8 items-center md:items-end bg-gradient-to-t from-surface-900 via-transparent to-transparent">
+        <div class="relative group flex-shrink-0">
+          <img id="series-img" src="" class="w-56 aspect-video object-cover rounded-3xl border-4 border-surface-800 shadow-2xl relative z-10" />
+          <div class="absolute -inset-2 bg-brand-500/20 blur-xl rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
         </div>
+        <div class="text-center md:text-left">
+          <h1 id="series-title" class="text-4xl sm:text-5xl font-extrabold text-white glow-text mb-4 font-sinhala leading-tight tracking-tight">Loading…</h1>
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <div class="bg-surface-800/80 border border-zinc-700/50 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2">
+              <span class="text-brand-400 font-bold" id="ep-count-text">—</span>
+              <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Episodes</span>
+            </div>
+            <div class="bg-surface-800/80 border border-zinc-700/50 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2">
+              <span class="text-blue-400">HD</span>
+              <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Quality</span>
+            </div>
+            <div class="bg-surface-800/80 border border-zinc-700/50 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2">
+              <span class="text-green-500">🇱🇰</span>
+              <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">සිංහල</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="h-px bg-zinc-800/60 mb-10"></div>
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-widest">Episode List</h2>
+      <div class="h-px flex-1 bg-zinc-800/60 mx-6"></div>
+    </div>
 
-    <div id="episodes-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-        <!-- Episodes cards -->
+    <div id="episodes-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <!-- Episodes cards populated by series.js -->
+        <div class="bg-surface-800 rounded-3xl aspect-video animate-pulse border border-zinc-800/40"></div>
+        <div class="bg-surface-800 rounded-3xl aspect-video animate-pulse border border-zinc-800/40"></div>
+        <div class="bg-surface-800 rounded-3xl aspect-video animate-pulse border border-zinc-800/40"></div>
     </div>
 </main>
+
+<footer class="border-t border-zinc-800/60 bg-surface-900 py-10 text-center mt-auto">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">📺</span>
+      <span class="font-bold text-sm tracking-tight text-zinc-400 uppercase">Cartoons<span class="text-zinc-600">LK</span></span>
+    </div>
+    <p class="text-[10px] text-zinc-700 leading-relaxed">&copy; 2026 CartoonsLK. Your classic cartoon library.</p>
+  </div>
+</footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
 <script src="js/firebase-config.js"></script>
 <script src="js/common.js"></script>
 <script src="js/series.js"></script>

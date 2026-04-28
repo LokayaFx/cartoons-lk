@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Terms and Conditions for CartoonsLK - Your guide to using our cartoon directory service." />
   <title>Terms & Conditions — Cartoons LK</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,7 +15,10 @@
             brand:   { 400:'#fb923c',500:'#f97316',600:'#ea6c0a' },
             surface: { 900:'#0d0d0f',800:'#18181b',700:'#27272a',600:'#3f3f46',500:'#52525b' }
           },
-          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], sinhala: ['"Noto Sans Sinhala"','sans-serif'] },
+          fontFamily: { 
+            sans: ['Inter','ui-sans-serif','system-ui'], 
+            sinhala: ['"Noto Sans Sinhala"','sans-serif'] 
+          },
         }
       }
     }
@@ -28,7 +32,9 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
     <a href="index.html" class="flex items-center gap-2 group">
       <span class="text-xl">📺</span>
-      <span class="font-bold text-base tracking-tight"><span class="text-brand-400">Cartoons</span><span class="text-zinc-300">LK</span></span>
+      <span class="font-bold text-base tracking-tight transition-all group-hover:text-brand-400">
+        <span class="text-brand-400">Cartoons</span><span class="text-zinc-300">LK</span>
+      </span>
     </a>
     <button id="menu-toggle" class="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all cursor-pointer">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -37,46 +43,193 @@
 </nav>
 
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
-<aside id="sidebar" class="fixed top-0 right-0 h-full w-[280px] bg-surface-900 border-l border-zinc-800 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col">
-  <div class="p-6 flex items-center justify-between border-b border-zinc-800">
-    <span class="font-bold text-zinc-200">Navigation</span>
-    <button id="menu-close" class="text-zinc-500 hover:text-white transition-colors cursor-pointer"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+<aside id="sidebar" class="fixed top-0 right-0 h-full w-[300px] bg-surface-900 border-l border-zinc-800/50 z-[70] translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+  <!-- Search Header -->
+  <div class="p-6 border-b border-zinc-800/60">
+    <div class="relative group">
+      <input type="text" placeholder="Search..." class="w-full bg-zinc-900 border border-zinc-700/50 rounded-full py-2.5 pl-5 pr-10 text-xs focus:outline-none focus:border-brand-500/60 transition-all duration-300" />
+      <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-500 text-sm opacity-70 group-hover:opacity-100 cursor-pointer">🔍</span>
+    </div>
   </div>
-  <div class="p-6 flex flex-col gap-2 flex-grow overflow-y-auto">
-    <a href="index.html" class="nav-link-item"><span class="w-4">📺</span> Cartoons</a>
-    <a href="movies.html" class="nav-link-item"><span class="w-4">🎬</span> Movies</a>
-    <a href="submits.html" class="nav-link-item"><span class="w-4">📬</span> Submits</a>
-    <a href="contact.html" class="nav-link-item"><span class="w-4">📧</span> Contact Us</a>
-    <a href="terms.html" class="nav-link-item active"><span class="w-4">⚖️</span> Terms & Conditions</a>
-    <div id="nav-auth-links" class="flex flex-col gap-2"></div>
+
+  <div class="flex-grow overflow-y-auto">
+    <div class="flex flex-col">
+      <a href="index.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🏠</span> Home
+      </a>
+      <a href="cartoons.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📺</span> Cartoons
+      </a>
+      <a href="movies.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎬</span> Movies
+      </a>
+      <a href="series-details.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">🎞️</span> TV Series
+      </a>
+      <a href="contact.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">📧</span> Contact Us
+      </a>
+      <a href="terms.html" class="flex items-center gap-4 px-6 py-4 text-sm font-semibold text-zinc-300 hover:bg-zinc-800/50 hover:text-brand-400 transition-all border-b border-zinc-800/50">
+        <span class="text-lg">⚖️</span> Privacy Policy
+      </a>
+      <div id="nav-auth-links" class="flex flex-col"></div>
+    </div>
+  </div>
+
+  <div class="p-6 border-t border-zinc-800/60 text-center">
+    <button id="menu-close" class="text-[10px] font-bold text-zinc-600 uppercase tracking-widest hover:text-zinc-400 transition-colors uppercase">Close Menu</button>
   </div>
 </aside>
 
-<main class="max-w-3xl mx-auto p-10 w-full animate-fade-in">
-    <h1 class="text-3xl font-bold text-white mb-6 border-b border-zinc-800 pb-4">Terms & Conditions</h1>
-    <div class="space-y-6 text-zinc-400 text-sm leading-relaxed">
-      <section>
-        <h2 class="text-white font-bold mb-2">1. Introduction</h2>
-        <p>Welcome to CartoonsLK. By accessing this website, you agree to comply with and be bound by these terms and conditions.</p>
-      </section>
-      <section>
-        <h2 class="text-white font-bold mb-2">2. Copyright & Content</h2>
-        <p>CartoonsLK does not host any video files. All content is linked from third-party platforms like YouTube, Dailymotion, and Archive.org. All rights belong to the original creators and copyright holders.</p>
-      </section>
-      <section>
-        <h2 class="text-white font-bold mb-2">3. External Links</h2>
-        <p>Our website contains links to external sites that are not operated by us. We have no control over the content and practices of these sites.</p>
-      </section>
+<header class="header-bg pt-16 pb-12 text-center px-4">
+  <div class="max-w-3xl mx-auto">
+    <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full text-brand-400 text-[10px] font-bold uppercase tracking-widest mb-4">
+      <span>Effective April 2026</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white glow-text leading-tight mb-4 tracking-tight">Terms of <span class="text-brand-400">Service</span></h1>
+    <p class="text-zinc-400 text-sm max-w-xl mx-auto">Please read these terms carefully before using the CartoonsLK directory service. By using our site, you agree to these rules.</p>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 pb-20 -mt-8 relative z-10 w-full animate-fade-in">
+    <div class="bg-surface-800 border border-zinc-700/50 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-md">
+      
+      <div class="grid gap-12 text-zinc-300">
+        
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 border border-blue-500/20 text-xl">📜</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">1. ගිවිසුම පිළිගැනීම (Acceptance)</h2>
+          </div>
+          <p class="leading-relaxed pl-13">By accessing or using CartoonsLK, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.</p>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 border border-orange-500/20 text-xl">🛡️</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">2. ප්‍රකාශන හිමිකම් හා අන්තර්ගතය (Copyright)</h2>
+          </div>
+          <div class="space-y-4 pl-13">
+            <p class="leading-relaxed">CartoonsLK is a content directory. <strong>We do not host, store, or upload any video files</strong> on our own servers. All content is indexed from third-party video hosting platforms such as:</p>
+            <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <li class="flex items-center gap-2 bg-surface-700/50 p-2 rounded-lg text-xs font-medium border border-zinc-700/30">
+                <span class="text-red-500">▶</span> YouTube
+              </li>
+              <li class="flex items-center gap-2 bg-surface-700/50 p-2 rounded-lg text-xs font-medium border border-zinc-700/30">
+                <span class="text-blue-500">▶</span> Dailymotion
+              </li>
+              <li class="flex items-center gap-2 bg-surface-700/50 p-2 rounded-lg text-xs font-medium border border-zinc-700/30">
+                <span class="text-gray-400">▶</span> Archive.org
+              </li>
+            </ul>
+            <p class="leading-relaxed text-sm italic border-l-2 border-brand-500 pl-4 py-1">All copyrights, trademarks, and intellectual property rights belong to their respective creators and copyright owners.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400 border border-red-500/20 text-xl">⚖️</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">3. DMCA හා අන්තර්ගත ඉවත් කිරීම (Takedown)</h2>
+          </div>
+          <div class="space-y-4 pl-13 text-sm">
+            <p>If you are a copyright owner and believe that content indexed on our site infringes upon your copyright, please contact the hosting service (YouTube, etc.) where the file is stored to have it removed at the source.</p>
+            <p>To request a link removal from CartoonsLK, please email us at <a href="mailto:support@cartoonslk.com" class="text-brand-400 hover:underline">support@cartoonslk.com</a> with the following:</p>
+            <ul class="list-disc list-inside space-y-1 text-zinc-400">
+              <li>A description of the copyrighted work.</li>
+              <li>The URL of the infringing link on our site.</li>
+              <li>Your contact information and statement of ownership.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 border border-purple-500/20 text-xl">👤</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">4. පරිශීලක වගකීම් (User Conduct)</h2>
+          </div>
+          <div class="space-y-2 pl-13 text-sm">
+            <p>Users must use the site for personal, non-commercial viewing only. You agree not to:</p>
+            <ul class="list-disc list-inside space-y-2 text-zinc-400">
+              <li>Use any automated systems (bots, spiders) to scrape content.</li>
+              <li>Attempt to disrupt the website security or servers.</li>
+              <li>Use the platform for any illegal activities in your jurisdiction.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 border border-pink-500/20 text-xl">🔒</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">5. පෞද්ගලිකත්ව ප්‍රතිපත්තිය (Privacy)</h2>
+          </div>
+          <div class="space-y-2 pl-13 text-sm leading-relaxed">
+            <p>We respect your privacy. CartoonsLK does not require user registration for general browsing. However:</p>
+            <ul class="list-disc list-inside space-y-1 text-zinc-400">
+              <li>We may use third-party analytics (like Google Analytics) to improve our site performance.</li>
+              <li>Your browser may store <strong>Cookies</strong> to enhance your experience (e.g., remembering your theme preference).</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 border border-yellow-500/20 text-xl">🔞</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">6. වයස් සීමාව (Age Policy)</h2>
+          </div>
+          <p class="leading-relaxed pl-13 text-sm">CartoonsLK is intended for a general audience. While we index cartoons, some third-party hosting platforms may show advertisements or recommendations beyond our control. Parents are advised to supervise children while browsing.</p>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 border border-green-500/20 text-xl">📵</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">7. වගකීම සීමා කිරීම (Disclaimer)</h2>
+          </div>
+          <p class="leading-relaxed pl-13 text-sm">CartoonsLK provides the site on an "AS IS" basis. We do not guarantee the permanent availability of any links or content. We are not liable for any direct or indirect damages resulting from your use of the site or exposure to third-party links.</p>
+        </section>
+
+        <section>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-zinc-500/10 flex items-center justify-center text-zinc-400 border border-zinc-500/20 text-xl">🔄</div>
+            <h2 class="text-xl font-bold text-white tracking-tight">8. කොන්දේසි වෙනස් කිරීම (Modifications)</h2>
+          </div>
+          <p class="leading-relaxed pl-13 text-sm">We reserve the right to modify these terms at any time without prior notice. Your continued use of the site following any changes constitutes your acceptance of the new terms.</p>
+        </section>
+
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-zinc-700/50 text-center">
+        <p class="text-xs text-zinc-500 uppercase tracking-widest font-bold mb-4">Still have questions?</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold py-3 px-8 rounded-2xl transition-all shadow-lg hover:shadow-brand-500/40 active:scale-95 group">
+          <span class="text-lg transition-transform group-hover:rotate-12">✉️</span> Contact Support
+        </a>
+      </div>
+
     </div>
 </main>
 
-<footer class="border-t border-zinc-800/60 bg-surface-900 py-8 text-center mt-auto">
-  <p class="text-xs text-zinc-600">&copy; 2026 CartoonsLK</p>
+<footer class="border-t border-zinc-800/60 bg-surface-900 py-10 text-center mt-auto">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">📺</span>
+        <span class="font-bold text-sm tracking-tight text-zinc-400 uppercase">Cartoons<span class="text-zinc-600">LK</span></span>
+      </div>
+      <div class="flex gap-6 text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+        <a href="index.html" class="hover:text-brand-400 transition-colors">Home</a>
+        <a href="movies.html" class="hover:text-brand-400 transition-colors">Movies</a>
+        <a href="contact.html" class="hover:text-brand-400 transition-colors">Contact</a>
+        <a href="submits.html" class="hover:text-brand-400 transition-colors">Submit</a>
+      </div>
+    </div>
+    <p class="text-[10px] text-zinc-600 leading-relaxed max-w-lg mx-auto">&copy; 2026 CartoonsLK. Your favorite destination for classic Sinhala dubbed cartoons. All rights reserved to their respective owners.</p>
+  </div>
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js"></script>
 <script src="js/firebase-config.js"></script>
 <script src="js/common.js"></script>
 </body>
 </html>
+
